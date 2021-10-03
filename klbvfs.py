@@ -253,8 +253,10 @@ def dump_table(dbpath, source, table):
 def do_dump(args):
   for source in args.directories:
     dbpath = find_db('asset_a_ja_0' , source)
-    if dbpath is None:
+    elif dbpath is None:
       dbpath = find_db('asset_a_ko' , source)
+    elif dbpath is None:
+      dbpath = find_db('asset_a_en' , source)
     for table in args.types:
       dump_table(dbpath, source, table)
 
